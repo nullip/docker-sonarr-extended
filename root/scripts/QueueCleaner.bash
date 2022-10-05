@@ -36,7 +36,7 @@ else
     arrQueueItemData="$(echo "$arrQueueData" | jq -r "select(.id==$queueId)")"
     arrQueueItemTitle="$(echo "$arrQueueItemData" | jq -r .title)"
     log "Removing Failed Queue Item ID: $queueId ($arrQueueItemTitle) from Sonarr..."
-    curl -sX DELETE "$arrUrl/api/v3/queue/$queueId?removeFromClient=true&blocklist=true&apikey=${arrApiKey}"
+    curl -sX DELETE "$arrUrl/api/v3/queue/$queueId?removeFromClient=false&blocklist=true&apikey=${arrApiKey}"
   done
 fi
 
@@ -51,7 +51,7 @@ else
     arrQueueItemData="$(echo "$arrQueueData" | jq -r "select(.id==$queueId)")"
     arrQueueItemTitle="$(echo "$arrQueueItemData" | jq -r .title)"
     log "Removing Failed Queue Item ID: $queueId ($arrQueueItemTitle) from Sonarr..."
-    curl -sX DELETE "$arrUrl/api/v3/queue/$queueId?removeFromClient=true&blocklist=true&apikey=${arrApiKey}"
+    curl -sX DELETE "$arrUrl/api/v3/queue/$queueId?removeFromClient=false&blocklist=true&apikey=${arrApiKey}"
   done
 fi
 
